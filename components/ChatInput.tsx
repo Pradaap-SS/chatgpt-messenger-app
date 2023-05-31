@@ -6,6 +6,8 @@ import { useSession } from "next-auth/react";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";
 import toast from "react-hot-toast";
+import useSWR from "swr";
+import ModelSelection from "./ModelSelection";
 
 type Props = {
     chatId: string
@@ -17,8 +19,11 @@ function ChatInput({chatId}: Props) {
   const { data: session } = useSession();
 
   // useSWR to get the model
+  const { data: model } = useSWR("model", {
+    fallbackData: "text-davinci-003",
+    });
 
-  const model = "text-davinci-003";
+  //const model = "text-davinci-003";
 
   const sendMessage = async(e : FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -87,7 +92,7 @@ function ChatInput({chatId}: Props) {
         </form>
 
         <div className="md:hidden">
-			{/*<ModelSelection />*/}
+			<ModelSelection />
 		</div>
     </div>
   );

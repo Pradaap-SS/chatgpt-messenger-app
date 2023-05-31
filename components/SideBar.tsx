@@ -6,6 +6,8 @@ import { useCollection } from "react-firebase-hooks/firestore";
 import { collection, orderBy, query } from "firebase/firestore";
 import { db } from "../firebase";
 import ChatRow from "./ChatRow";
+import NewChat from "./NewChat";
+import ModelSelection from "./ModelSelection";
 
 function SideBar() {
   const { data: session } = useSession();
@@ -34,10 +36,10 @@ function SideBar() {
     <div className="hidden md:flex flex-col h-screen p-2">
       <div className="flex-1">
         <div>
-          {/*<NewChat />*/}
+          <NewChat />
 
           <div className="hidden sm:inline">
-            {/*<ModelSelection />*/}
+            <ModelSelection />
           </div>
 
           <div className="flex flex-col space-y-2 my-2">
