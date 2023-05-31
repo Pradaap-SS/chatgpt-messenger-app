@@ -17,6 +17,7 @@ function Login() {
             className=" text-black font-bold text-2xl animate-pulse border border-black border-solid rounded-lg py-2 px-4">
             Sign In to ChatGPT
       </button>
+      <p className="mt-20 italic text-[#0f2821] hover:animate-bounce">Developed by Pradaap!</p>
     </div>
   );
 }
